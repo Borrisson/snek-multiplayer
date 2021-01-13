@@ -12,7 +12,7 @@ const connect = function () {
   conn.setEncoding('utf8');
   conn.setTimeout(3000);
   conn.on('timeout', () => {
-    console.log('socket timeout');
+    console.log('you ded cuz you idled');
     conn.end();
   });
   return conn;
