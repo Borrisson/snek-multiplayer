@@ -1,3 +1,4 @@
+const { MOVE_DOWN_KEY, MOVE_LEFT_KEY, MOVE_RIGHT_KEY, MOVE_UP_KEY } = require('./constants');
 let connection;
 const setupInput = function(conn) {
   connection = conn;
@@ -17,16 +18,16 @@ const handleUserInput = function(key) {
   case '\u0003':
     process.exit();
     break;
-  case 'w':
+  case MOVE_UP_KEY:
     connection.write('Move: up');
     break;
-  case 'd':
+  case MOVE_DOWN_KEY:
     connection.write('Move: down');
     break;
-  case 'a':
+  case MOVE_LEFT_KEY:
     connection.write('Move: left');
     break;
-  case 's':
+  case MOVE_RIGHT_KEY:
     connection.write('Move: right');
     break;
   case 'y':

@@ -1,14 +1,13 @@
-const name = 'Luc';
 const net = require('net');
-
+const { IP, PORT, NAME } = require('./constants');
 const connect = function () {
   const conn = net.createConnection({
-    host: 'localhost',
-    port: 50541,
+    host: IP,
+    port: PORT,
   });
   conn.on('connect', () => {
     console.log('Connection Established');
-    conn.write(`Name: ${name}`);
+    conn.write(`Name: ${NAME}`);
 
   });
   // interpret incoming data as text
