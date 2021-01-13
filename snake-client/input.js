@@ -1,4 +1,6 @@
-const setupInput = function () {
+let connection;
+const setupInput = function (conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.on('data', (data) => {
     handleUserInput(data);
@@ -11,8 +13,21 @@ const setupInput = function () {
 setupInput();
 
 const handleUserInput = function (key) {
-  if (key === '\u0003') {
-    process.exit();
+  switch (key) {
+    case '\u0003':
+      process.exit();
+      break;
+    case 'w':
+      connection.write('Move: up');
+      break;
+    case 'd':
+      connection.write('Move: down');
+      break;
+    case 'a':
+      connection.write('Move: left');
+      break;
+    case 's':
+      connection.write('Move: right');
   }
 };
 
