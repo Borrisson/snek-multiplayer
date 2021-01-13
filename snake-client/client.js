@@ -1,3 +1,4 @@
+const name = 'Luc';
 const net = require('net');
 
 const connect = function () {
@@ -5,6 +6,10 @@ const connect = function () {
     host: 'localhost',
     port: 50541
   });
+  conn.on('connect', () => {
+    console.log('Connection Established');
+    conn.write(`Name: ${name}`);
+  })
   // interpret incoming data as text
   conn.setEncoding('utf8');
   conn.setTimeout(15000);
